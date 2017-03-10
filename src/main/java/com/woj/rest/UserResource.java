@@ -15,9 +15,9 @@ public class UserResource {
 	private static final Logger log =Logger.getLogger(UserResource.class);
 	
 	@GetMapping("/user")
-	public UserDTO getSUser(@RequestParam(value="id") String id, HttpServletRequest request){
+	public UserDTO getSUser(@RequestParam("id") String id, HttpServletRequest request,@RequestParam("name") String name){
 		log.info(request.getRemoteAddr());
-		UserDTO wojtek= new UserDTO(Long.valueOf(id),"Wojciech");
+		UserDTO wojtek= new UserDTO(Long.valueOf(id),name);
 		return wojtek;
 	};
 	
